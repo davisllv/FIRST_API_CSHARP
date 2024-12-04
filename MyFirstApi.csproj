@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <Compile Remove="Co\**" />
+    <Content Remove="Co\**" />
+    <EmbeddedResource Remove="Co\**" />
+    <None Remove="Co\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Co\" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
 </Project>

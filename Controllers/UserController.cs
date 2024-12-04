@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyFirstApi.Communication.Request;
 using MyFirstApi.Communication.Response;
 
 namespace MyFirstApi.Controllers;
 // Route é uma variável já definido com a variável local
-[Route("api/[controller]")]
-[ApiController]
-public class UserController : ControllerBase // Controllerbase herda valores da classe cntrollerbase
+public class UserController : MyFirstApiBaseController // Controllerbase herda valores da classe cntrollerbase
 {
     [HttpGet]
     [Route("{id}")] // Definir parametros dentro da rota;
@@ -21,6 +18,7 @@ public class UserController : ControllerBase // Controllerbase herda valores da 
             Age = 22,
             Name = "22"
         };
+
         return Ok(response);
     }
     // Informações são recebidas do body
