@@ -35,14 +35,13 @@ public class UserController : ControllerBase // Controllerbase herda valores da 
         };
         return Created(string.Empty, response);
     }
-    [HttpPost]
-    public IActionResult Update([FromBody] RequestRegisterUserJson obj)
+    [HttpPut]
+    [Route("{id}")] // Formato quando for alterar o usuário, ou alguma coisa, um admin, por exemplo; Ou usuário apenas pode alterar as informações dele logado.
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public IActionResult Update(
+        [FromRoute] int id,
+        [FromBody] RequestUpdateUserProfileJson req)
     {
-        ResponseRegisterdUserJson response = new()
-        {
-            Id = 1,
-            Name = obj.Name
-        };
         return NoContent();
     }
 }
